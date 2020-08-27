@@ -1,12 +1,8 @@
 package ru.skillbranch.devintensive.extensions
 
-fun String.truncate(length: Int = 16): String {
-    var result = this.trim()
-    if (result.length > length) result = result.substring(0, length).trimEnd() + "..."
-    return result
+fun String.truncate(len: Int = 16): String{
+    var res = this
+    return res.substring(0, len).trimEnd() + "..."
 }
 
-
-fun String.stripHtml() = this
-        .replace(Regex("<[^>]*>|&amp;|&lt;|&gt;|&quot;|&apos;|&#\\d+;"), "")
-        .replace(Regex(" +"), " ")
+fun String.stripHtml() = this.replace(Regex("<[^>]*>|&amp;|&lt;|&gt;|&quot;|&apos;|&#\\d+;"),"").replace(Regex(" +"), " ")
